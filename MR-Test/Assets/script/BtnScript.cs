@@ -6,6 +6,7 @@ using Vuforia;
 public class BtnScript : MonoBehaviour, IVirtualButtonEventHandler{
     public GameObject btnLeft;
     public GameObject btnRight;
+    public GameObject btnGrab;
     public GameObject cube;
 
     public float speed = 3.0f;
@@ -23,6 +24,9 @@ public class BtnScript : MonoBehaviour, IVirtualButtonEventHandler{
             case "RightBtn":
                 isRightBtnPressed = true;
                 break;
+            case "GrabBtn":
+                Debug.Log("BtnGrabPressed");
+                break;
         }
     }
 
@@ -36,6 +40,9 @@ public class BtnScript : MonoBehaviour, IVirtualButtonEventHandler{
             case "RightBtn":
                 isRightBtnPressed = false;
                 break;
+            case "GrabBtn":
+                Debug.Log("BtnGrabReleased");
+                break;
         }
     }
 
@@ -43,10 +50,12 @@ public class BtnScript : MonoBehaviour, IVirtualButtonEventHandler{
     void Start () {
         btnLeft = GameObject.Find("LeftBtn");
         btnRight = GameObject.Find("RightBtn");
+        btnGrab = GameObject.Find("GrabBtn");
         cube = GameObject.Find("Cube");
 
         btnLeft.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
         btnRight.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
+        btnGrab.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
     }
 	
 	// Update is called once per frame
