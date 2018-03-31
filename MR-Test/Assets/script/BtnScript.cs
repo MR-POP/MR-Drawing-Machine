@@ -7,7 +7,7 @@ public class BtnScript : MonoBehaviour, IVirtualButtonEventHandler{
     public GameObject btnLeft;
     public GameObject btnRight;
     public GameObject btnGrab;
-    public GameObject cube;
+    public GameObject body;
     public GameObject hook;
 
     public float speed = 3.0f;
@@ -54,7 +54,7 @@ public class BtnScript : MonoBehaviour, IVirtualButtonEventHandler{
         btnLeft = GameObject.Find("LeftBtn");
         btnRight = GameObject.Find("RightBtn");
         btnGrab = GameObject.Find("GrabBtn");
-        cube = GameObject.Find("Cube");
+        body = GameObject.Find("Body");
         hook = GameObject.Find("Hook");
 
         anim = hook.GetComponent<Animator>();
@@ -68,11 +68,11 @@ public class BtnScript : MonoBehaviour, IVirtualButtonEventHandler{
 	void Update () {
         if (isLeftBtnPressed)
         {
-            cube.transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            body.transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
         if (isRightBtnPressed)
         {
-            cube.transform.Translate(Vector3.back * speed * Time.deltaTime);
+            body.transform.Translate(Vector3.back * speed * Time.deltaTime);
         }
     }
 }
