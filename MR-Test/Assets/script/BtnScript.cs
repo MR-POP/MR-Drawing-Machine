@@ -8,6 +8,8 @@ public class BtnScript : MonoBehaviour, IVirtualButtonEventHandler{
     public GameObject btnRight;
     public GameObject cube;
 
+    public float speed = 3.0f;
+
     private bool isLeftBtnPressed = false;
     private bool isRightBtnPressed = false;
 
@@ -51,11 +53,11 @@ public class BtnScript : MonoBehaviour, IVirtualButtonEventHandler{
 	void Update () {
         if (isLeftBtnPressed)
         {
-            cube.transform.Translate(Vector3.forward * 5.0f * Time.deltaTime);
+            cube.transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
         if (isRightBtnPressed)
         {
-            cube.transform.Translate(Vector3.back * 5.0f * Time.deltaTime);
+            cube.transform.Translate(Vector3.back * speed * Time.deltaTime);
         }
     }
 }
